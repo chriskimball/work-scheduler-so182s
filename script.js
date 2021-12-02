@@ -8,7 +8,7 @@
 //  currentHour
 
 // Day of week variable
-var dayOfWeek = moment().format('dddd');
+var dayOfWeek = moment().format('dddd, MMMM Do');
 
 $('#currentDay').text(dayOfWeek);
 
