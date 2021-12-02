@@ -14,20 +14,24 @@ $('#currentDay').text(dayOfWeek);
 
 var ContainerEl = $(".container")
 
+function init(){
+    // for loop from 9 to 17
+    for (var i = 9; i <= 17; i++){
+        // create new block of html for each hour of the day 
+        var htmlTemplate = `
+        <div id="hour-${i}" class="row">
+            <label class="hour col-1 p-3 text-right" for="hour">${moment(i, 'HH').format('hA')}</label>
+            <textarea class= "description col" name="hour${i}"></textarea>
+            <button type="button" class="saveBtn col-1" data-hour="${i}">💾</button>
+        </div>
+        `
+        
+        ContainerEl.append(htmlTemplate)
+    }
+}
 
-// for loop from 9 to 17
-for (var i = 9; i <= 17; i++){
-    // create new block of html for each hour of the day 
-    var htmlTemplate = `
-    <div id="hour-${i}" class="row">
-        <label class="hour col-1 p-3 text-right" for="hour">${moment(i, 'HH').format('hA')}</label>
-        <textarea class= "description col" name="hour"></textarea>
-        <button type="button" class="saveBtn col-1"></button>
-    </div>
-    `
-    
-    ContainerEl.append(htmlTemplate)
-    
+init()
+
     // saving the current hour to a data attribute so it can be accessed from an event listener
     
     // i = current hour of the loop, 9 - 17
@@ -42,22 +46,22 @@ for (var i = 9; i <= 17; i++){
     // data attributes are key
     
     
-}
+
 
 // add event listener to container element so we can create dynamic buttons that are rendered on the page (children of the container and event delegation)
 // event listener on the container can listen to any button click
 
 // need to capture the container element into a variable
 $('.container').on('click','button', function(event){
-
+    
     // we need to respond to button clicks and interact with data. Access a data attribute from button or parent element.
     // need to add 'event' object as a callback argument
     
     // access the current target
-    event.target
-    
+    var hourClicked = event.target.dataset.hour
+    console.log(hourClicked)
     // access the targets data attributes
     // event.target.dataset. aka vanilla JS might be better than jQuery .data method to access the data attributes
-
+    
 
 })
