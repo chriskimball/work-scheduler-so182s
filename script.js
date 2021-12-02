@@ -20,7 +20,7 @@ for (var i = 9; i <= 17; i++){
     // create new block of html for each hour of the day 
     var htmlTemplate = `
     <div id="hour-${i}" class="row">
-        <label class="hour col-1" for="hour">${moment(i, 'HH').format('hA')}</label>
+        <label class="hour col-1 p-3 text-right" for="hour">${moment(i, 'HH').format('hA')}</label>
         <textarea class= "description col" name="hour"></textarea>
         <button type="button" class="saveBtn col-1"></button>
     </div>
