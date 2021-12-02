@@ -7,6 +7,11 @@
 //  $('#currentDay') to render and print html in the container
 //  currentHour
 
+// Day of week variable
+var dayOfWeek = moment().format('dddd');
+
+$('#currentDay').text(dayOfWeek);
+
 
 
 // for loop from 9 to 17
