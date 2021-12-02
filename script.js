@@ -12,19 +12,30 @@ var dayOfWeek = moment().format('dddd, MMMM Do');
 
 $('#currentDay').text(dayOfWeek);
 
+var ContainerEl = $(".container")
 
 
 // for loop from 9 to 17
 for (var i = 9; i <= 17; i++){
     // create new block of html for each hour of the day 
+    var htmlTemplate = `
+    <div id="hour-${i}" class="row time-block">
+        <label class="hour" for="hour">${moment(i, 'HH').format('hA')}</label>
+        <textarea class= "description time-block" name="hour"></textarea>
+        <button type="button" class="saveBtn"></button>
+    </div>
+    `
+    
+    ContainerEl.append(htmlTemplate)
+    
     // saving the current hour to a data attribute so it can be accessed from an event listener
-
+    
     // i = current hour of the loop, 9 - 17
 
     // fetch saved values in for loop
     // local storage key = "hour-9"
     // need to put hour- i variable into a string
-    var savedValueForHour = localStorage.getItem( 'hour-' + i ,  )
+    // var savedValueForHour = localStorage.getItem( 'hour-' + i ,  )
 
     // need to do something similar when we save the items to convert a saved number value into a string to put into local storage.
     
