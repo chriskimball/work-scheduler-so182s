@@ -12,6 +12,7 @@ var dayOfWeek = moment().format('dddd, MMMM Do');
 
 // hour of day variable
 var timeOfDay = moment().format('H')
+// var timeOfDay = 11
 
 console.log(timeOfDay)
 $('#currentDay').text(dayOfWeek);
@@ -28,6 +29,7 @@ function init(){
         if (hourElText === null) {
             hourElText = "";
         }
+        
         var hourStyle = ""
         // Adding style elements for past/current/future timeblocks
         if (timeOfDay == i) {
@@ -41,9 +43,9 @@ function init(){
 
         // create new block of html for each hour of the day 
         var htmlTemplate = `
-        <div id="hour-${i}" class="row${hourStyle}">
+        <div id="hour-${i}" class="row">
             <label class="hour col-1 p-3 text-right" for="hour">${moment(i, 'HH').format('hA')}</label>
-            <textarea class= "description col" name="hour${i}">${hourElText}</textarea>
+            <textarea class= "description col${hourStyle}" name="hour${i}">${hourElText}</textarea>
             <button type="button" class="saveBtn col-1" data-hour="${i}">💾</button>
         </div>
         `
