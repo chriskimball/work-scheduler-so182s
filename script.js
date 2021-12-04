@@ -11,12 +11,14 @@ $('#currentDay').text(dayOfWeek);
 // Declaring variable for the container element to print hour blocks
 var ContainerEl = $(".container")
 
+var hourElText = ""
+
 // Initial page load function
 function init(){
     // For hours 9 to 17 (9am to 5pm) do the following
     for (var i = 9; i <= 17; i++){
         // Retrieve hour text from local storage
-        var hourElText = JSON.parse(localStorage.getItem("hour-"+i));
+        hourElText = JSON.parse(localStorage.getItem("hour-"+i));
         
         // If local storage is blank then it will set the text area to a blank string
         if (hourElText === null) {
@@ -54,10 +56,10 @@ $('.container').on('click','button', function(event){
     // Access the current target's data attribute for hour of day
     var hourClicked = event.target.dataset.hour
     // Selecting the textarea value for the button that was clicked based on the button's data attribute
-    var hourEl = $('#hour-' + hourClicked).children().eq(1).val()
+    var hourElText = $('#hour-' + hourClicked).children().eq(1).val()
     
     // Saves textarea value into the local storage
-    localStorage.setItem("hour-" + hourClicked, JSON.stringify(hourEl));
+    localStorage.setItem("hour-" + hourClicked, JSON.stringify(hourElText));
 })
 
 // Calling initial page load function
