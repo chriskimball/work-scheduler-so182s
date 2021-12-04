@@ -51,8 +51,6 @@ function init(){
 // Event listener on the container can listen to any button click
 $('.container').on('click','button', function(event){
     
-    event.preventDefault()
-
     // Access the current target's data attribute for hour of day
     var hourClicked = event.target.dataset.hour
     // Selecting the textarea value for the button that was clicked based on the button's data attribute
