@@ -10,6 +10,10 @@
 // Day of week variable
 var dayOfWeek = moment().format('dddd, MMMM Do');
 
+// hour of day variable
+var timeOfDay = moment().format('H')
+
+console.log(timeOfDay)
 $('#currentDay').text(dayOfWeek);
 
 var ContainerEl = $(".container")
@@ -17,11 +21,29 @@ var ContainerEl = $(".container")
 function init(){
     // for loop from 9 to 17
     for (var i = 9; i <= 17; i++){
+        // retreiving hour text
+        var hourElText = JSON.parse(localStorage.getItem("hour-"+i));
+        
+        // If local storage is blank then it will set the text area to a blank string
+        if (hourElText === null) {
+            hourElText = "";
+        }
+        var hourStyle = ""
+        // Adding style elements for past/current/future timeblocks
+        if (timeOfDay == i) {
+            hourStyle = " present";
+        } else if (timeOfDay < i) {
+            hourStyle = " future";
+        }
+        else if (timeOfDay > i) {
+            hourStyle = " past";
+        } 
+
         // create new block of html for each hour of the day 
         var htmlTemplate = `
-        <div id="hour-${i}" class="row">
+        <div id="hour-${i}" class="row${hourStyle}">
             <label class="hour col-1 p-3 text-right" for="hour">${moment(i, 'HH').format('hA')}</label>
-            <textarea class= "description col" name="hour${i}"></textarea>
+            <textarea class= "description col" name="hour${i}">${hourElText}</textarea>
             <button type="button" class="saveBtn col-1" data-hour="${i}">💾</button>
         </div>
         `
