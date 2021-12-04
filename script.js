@@ -61,7 +61,7 @@ $('.container').on('click','button', function(event){
     var hourClicked = event.target.dataset.hour
     var hourEl = $('#hour-' + hourClicked).children().eq(1).val()
 
-
+    localStorage.setItem("hour-" + hourClicked, JSON.stringify(hourEl));
     // var hourTextEl = hourEl.children
     console.log(hourEl)
     
