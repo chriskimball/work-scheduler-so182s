@@ -20,7 +20,7 @@ function init(){
         // Retrieve hour text from local storage
         hourElText = JSON.parse(localStorage.getItem("hour-"+i));
         
-        // If local storage is blank then it will set the text area to a blank string
+        // If local storage is empty then it will set the variable to a blank string
         if (hourElText === null) {
             hourElText = "";
         }
@@ -28,19 +28,19 @@ function init(){
         // Adding hour styling for past/current/future timeblocks
         var hourStyle = ""
         if (timeOfDay == i) {
-            hourStyle = " present";
+            hourStyle = "present";
         } else if (timeOfDay < i) {
-            hourStyle = " future";
+            hourStyle = "future";
         }
         else if (timeOfDay > i) {
-            hourStyle = " past";
+            hourStyle = "past";
         } 
 
         // create new block of html for each hour of the work day 
         var htmlTemplate = `
         <div id="hour-${i}" class="row">
             <label class="hour col-1 p-3 text-right" for="hour">${moment(i, 'HH').format('hA')}</label>
-            <textarea class= "description col${hourStyle}" name="hour${i}">${hourElText}</textarea>
+            <textarea class= "description col ${hourStyle}" name="hour${i}">${hourElText}</textarea>
             <button type="button" class="saveBtn col-1" data-hour="${i}">💾</button>
         </div>
         `
