@@ -56,10 +56,15 @@ $('.container').on('click','button', function(event){
     
     // we need to respond to button clicks and interact with data. Access a data attribute from button or parent element.
     // need to add 'event' object as a callback argument
-    
+    event.preventDefault()
     // access the current target
     var hourClicked = event.target.dataset.hour
-    console.log(hourClicked)
+    var hourEl = $('#hour-' + hourClicked).children().eq(1).val()
+
+
+    // var hourTextEl = hourEl.children
+    console.log(hourEl)
+    
     // access the targets data attributes
     // event.target.dataset. aka vanilla JS might be better than jQuery .data method to access the data attributes
     
