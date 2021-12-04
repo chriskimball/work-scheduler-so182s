@@ -13,6 +13,14 @@ textarea {
   padding: 10px;
 }
 
+.hidden {
+  display:none;
+}
+
+.displayed {
+  display:unset;
+}
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -44,17 +52,15 @@ textarea {
 
 .past {
   background-color: #d3d3d3;
-  color: white;
 }
 
 .present {
   background-color: #ff6961;
-  color: white;
+  font-weight:800;
 }
 
 .future {
   background-color: #77dd77;
-  color: white;
 }
 
 .saveBtn {
