@@ -38,11 +38,11 @@ function init(){
 
         // create new block of html for each hour of the work day 
         var htmlTemplate = `
-        <div id="hour-${i}" class="row">
+        <form id="hour-${i}" class="row">
             <label class="hour col-1 p-3 text-right" for="hour">${moment(i, 'HH').format('hA')}</label>
             <textarea class= "description col ${hourStyle}" name="hour${i}">${hourElText}</textarea>
             <button type="button" class="saveBtn col-1" data-hour="${i}">💾</button>
-        </div>
+        </form>
         `
         
         // Appending htmlTemplate into container element
